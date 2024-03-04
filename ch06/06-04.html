@@ -1,24 +1,30 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>06-04</title>
-  </head>
-  <body>
-    <div id="app">
-      <button id="btn1" :style="[ myColor, myLayout ]">버튼1</button>
-    </div>
-    <script src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return {
-            myColor: { backgroundColor: "purple", color: "yellow" },
-            myLayout: { width: "150px", height: "80px", textAlign: "center" },
-          };
-        },
-      }).mount("#app");
-    </script>
-  </body>
+<html lang='ko'>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06-04</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 인라인스타일에는 객체, 변수, 배열 가능 -->
+    <button id="btn1" :style="[ myColor, myLayout ]">버튼1</button>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    var vm = Vue.createApp({
+      name: "App",
+      data() {
+        return {
+          myColor: { backgroundColor: "purple", color: "yellow" },
+          myLayout: { width: "150px", height: "80px", textAlign: "center" },
+        };
+      },
+    }).mount("#app");
+  </script>
+</body>
+
 </html>

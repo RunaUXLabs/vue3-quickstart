@@ -1,28 +1,35 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>05-06</title>
-  </head>
-  <body>
-    <div id="app">
-      <div @contextmenu.prevent style="position: absolute; top: 5px; right: 5px; bottom: 5px; left: 5px">
-        <a href="https://facebook.com" @click="confirmFB">페이스북</a>
-      </div>
+<html lang='ko'>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05-06</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 수식어prevent를 이용하여 @contextmenu.prevent라고 작성하면
+    매번 기본기능을 막는 형식의 함수를 짤필요 없게 만들었다. -->
+    <div @contextmenu.prevent style="position: absolute; top: 5px; right: 5px; bottom: 5px; left: 5px">
+      <a href="https://facebook.com" @click="confirmFB">페이스북</a>
     </div>
-    <script src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        methods: {
-          //ctxStop 메서드 삭제
-          confirmFB(e) {
-            if (!confirm("페이스북으로 이동할까요?")) {
-              e.preventDefault();
-            }
-          },
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+
+  <script>
+    var vm = Vue.createApp({
+      name: "App",
+      methods: {
+        //ctxStop 메서드 삭제
+        confirmFB(e) {
+          if (!confirm("페이스북으로 이동할까요?")) {
+            e.preventDefault();
+          }
         },
-      }).mount("#app");
-    </script>
-  </body>
+      },
+    }).mount("#app");
+  </script>
+</body>
+
 </html>

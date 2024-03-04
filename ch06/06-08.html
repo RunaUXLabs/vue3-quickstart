@@ -1,39 +1,51 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>06-08</title>
-    <style>
-      .bColor {
-        background-color: aqua;
-        color: black;
-      }
-      .bLayout {
-        text-align: center;
-        width: 120px;
-      }
-      .bBorder {
-        border: khaki dashed 1px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="app">
-      <button :class="{ bColor:setColor, bLayout:setAlign, bBorder:setBorder }">버튼1</button>
-      <p>
-        <input type="checkbox" v-model="setColor" value="true" />색상<br />
-        <input type="checkbox" v-model="setAlign" value="true" />정렬,크기<br />
-        <input type="checkbox" v-model="setBorder" value="true" />테두리선<br />
-      </p>
-    </div>
-    <script src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return { setColor: false, setAlign: false, setBorder: false };
-        },
-      }).mount("#app");
-    </script>
-  </body>
+<html lang='ko'>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06-08</title>
+  <style>
+    .bColor {
+      background-color: aqua;
+      color: black;
+    }
+
+    .bLayout {
+      text-align: center;
+      width: 120px;
+    }
+
+    .bBorder {
+      border: khaki dashed 1px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- :class에 객체가 바인딩 되었을 경우,
+      true값을 갖는 *키 이름*이 해당 엘리먼트의 class명으로 추가된다. -->
+
+    <button :class="{ bColor:setColor, bLayout:setAlign, bBorder:setBorder }">버튼1</button>
+    <!-- 초기 렌더링 후 객체값이 렌더링 되므로, 화면 그려지는 속도에 영향을 미칠수 있다.
+      미리 만들어 놓으면 좀더 수월한 바인딩이 가능하다. 06-09예제에서 표현됨 -->
+    <p>
+      <input type="checkbox" v-model="setColor" value="true">색상<br>
+      <input type="checkbox" v-model="setAlign" value="true">정렬,크기<br>
+      <input type="checkbox" v-model="setBorder" value="true">테두리선<br>
+    </p>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    var vm = Vue.createApp({
+      name: "App",
+      data() {
+        // 초기렌더링 함수에서 모든 체크박스가 false가 됨
+        return { setColor: false, setAlign: false, setBorder: false };
+      },
+    }).mount("#app");
+  </script>
+</body>
+
 </html>

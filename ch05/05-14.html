@@ -1,31 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>05-14</title>
-  </head>
-  <body>
-    <div id="app">
-      <ul>
-        <li>마우스 왼쪽만 클릭 : 1씩 증가</li>
-        <li>CTRL+왼쪽 클릭 : 10씩 증가</li>
-        <li>CTRL+ALT+왼쪽 클릭 : 100씩 증가</li>
-      </ul>
-      <button @click.exact="num=num+1" @click.ctrl.exact="num=num+10" @click.ctrl.alt.exact="num=num+100">
-        클릭하세요</button
-      ><br />
-      <br />
-      <h3>카운트 : {{num}}</h3>
-    </div>
-    <script type="text/javascript" src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return { num: 0 };
-        },
-      }).mount("#app");
-    </script>
-  </body>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05-14</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li>마우스 왼쪽만 클릭 : 1씩 증가</li>
+      <li>CTRL+왼쪽 클릭 : 10씩 증가</li>
+      <li>CTRL+ALT+왼쪽 클릭 : 100씩 증가</li>
+    </ul>
+    <button @click.exact="num=num+1" @click.ctrl.exact="num=num+10" @click.ctrl.alt.exact="num=num+100">
+      <!-- 수식어 .exact는 이벤트에 붙여서 정확한 조건일때만 이벤트를 발생하게끔 만듦. 바닐라에서 클릭이벤트를 만들었을때 클릭만 포함되면 이벤트가 발생하지만(다른 키조합과 클릭해서 이벤트 발생), .exact는 엄격구조로 구성가능  -->
+      클릭하세요</button><br>
+    <br>
+    <h3>카운트 : {{num}}</h3>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    var vm = Vue.createApp({
+      name: "App",
+      data() {
+        return { num: 0 };
+      },
+    }).mount("#app");
+  </script>
+</body>
+
 </html>

@@ -1,30 +1,39 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>05-05</title>
-  </head>
-  <body>
-    <div id="app">
-      <div @contextmenu="ctxStop" style="position: absolute; top: 5px; right: 5px; bottom: 5px; left: 5px">
-        <a href="https://facebook.com" @click="confirmFB">페이스북</a>
-      </div>
+<html lang='ko'>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05-05</title>
+</head>
+
+<body>
+  <div id="app">
+    <div @contextmenu="ctxStop">
+      <!-- div영역에서 우클릭을 했을 때 뜨는 기본 컨텍스트메뉴창을 막을때
+      @contextmenu='메서드명'으로 작성하고 기본기능 막으라라는 함수 쓰기-->
+      <a href="https://facebook.com" @click="confirmFB">페이스북</a>
+      <!-- 목적지로 데려가는 태그 a에 클릭이벤트를 걸었다. -->
     </div>
-    <script src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        methods: {
-          ctxStop(e) {
-            e.preventDefault();
-          },
-          confirmFB(e) {
-            if (!confirm("페이스북으로 이동할까요?")) {
-              e.preventDefault();
-            }
-          },
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    var vm = Vue.createApp({
+      name: "App",
+      methods: {
+        ctxStop(e) {
+          e.preventDefault();
         },
-      }).mount("#app");
-    </script>
-  </body>
+        confirmFB(e) {
+          if (!confirm("페이스북으로 이동할까요?")) { // 취소를 눌렀을 때
+            e.preventDefault();
+            // a링크의 페이지이동 기본 기능 막기
+          }
+        },
+      },
+    }).mount("#app");
+  </script>
+</body>
+
 </html>

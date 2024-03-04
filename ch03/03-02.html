@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>03-02</title>
-  </head>
-  <body>
-    <div id="app">
-      <h2 v-html="message"></h2>
-    </div>
-    <script type="text/javascript" src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var model = { message: "Hello Vue3!" };
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return model;
-        },
-      }).mount("#app");
-    </script>
-  </body>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-02</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>디렉티브 v-text, v-html사용 </h1>
+    <!-- 기존 스크립트에서 innerHTML, textContent, innerText와 같은 개념이다 -->
+    <!-- html에서 vue 문법 사용해서 에러가 뜨는것이니 구분해서 볼 것 -->
+    <h2 v-text="message1"></h2>
+    <h2 v-html="message1"></h2>
+
+    <h2 v-text="message2"></h2>
+    <h2 v-html="message2"></h2>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="03-02.js"></script>
+</body>
+
 </html>

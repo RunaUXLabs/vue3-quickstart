@@ -1,15 +1,16 @@
-import { fileURLToPath, URL } from 'node:url'
+import { fileURLToPath, URL } from 'node:url';
 
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { manualChunksPlugin } from 'vite-plugin-webpackchunkname'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+// 청크스플릿팅 추가
+import { manualChunksPlugin } from 'vite-plugin-webpackchunkname';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), manualChunksPlugin() ],
+  plugins: [vue(), manualChunksPlugin()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-})
+});

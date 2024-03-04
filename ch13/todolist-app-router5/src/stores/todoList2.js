@@ -8,9 +8,10 @@ import axios from 'axios';
 const owner = "gdhong";
 const BASEURI = "/api/todolist_long";
 
+//todoList1 스토어 정의, 컴포지션API
 export const useTodoListStore = defineStore("todoList2", () => {
-    const state = reactive({ 
-        todoList : [],
+    const state = reactive({
+        todoList: [],
         isLoading: false
     });
 
@@ -24,43 +25,43 @@ export const useTodoListStore = defineStore("todoList2", () => {
                 alert('데이터 조회 실패');
             }
             state.isLoading = false;
-        } catch(error) {
+        } catch (error) {
             alert('에러발생 :' + error);
             state.isLoading = false;
         }
-    }
+    };
 
     const addTodo = async ({ todo, desc }, successCallback) => {
-        if (!todo || todo.trim()==="") {
+        if (!todo || todo.trim() === "") {
             alert('할일은 반드시 입력해야 합니다');
             return;
         }
         state.isLoading = true;
         try {
             const payload = { todo, desc };
-            const response = await axios.post(BASEURI + `/${owner}`, payload)
+            const response = await axios.post(BASEURI + `/${owner}`, payload);
             if (response.data.status === "success") {
-                state.todoList.push({ id: response.data.item.id, todo, desc, done: false })
+                state.todoList.push({ id: response.data.item.id, todo, desc, done: false });
                 successCallback();
-              } else {
+            } else {
                 alert('Todo 추가 실패 : ' + response.data.message);
-              }
-              state.isLoading = false;
-        } catch(error) {
+            }
+            state.isLoading = false;
+        } catch (error) {
             alert('에러발생 :' + error);
             state.isLoading = false;
         }
-    }
+    };
 
     const updateTodo = async ({ id, todo, desc, done }, successCallback) => {
-        if (!todo || todo.trim()==="") {
+        if (!todo || todo.trim() === "") {
             alert('할일은 반드시 입력해야 합니다');
             return;
         }
         state.isLoading = true;
         try {
             const payload = { todo, desc, done };
-            const response = await axios.put(BASEURI + `/${owner}/${id}`, payload)
+            const response = await axios.put(BASEURI + `/${owner}/${id}`, payload);
             if (response.data.status === "success") {
                 let index = state.todoList.findIndex((todo) => todo.id === id);
                 state.todoList[index] = { id, todo, desc, done };
@@ -69,33 +70,33 @@ export const useTodoListStore = defineStore("todoList2", () => {
                 alert('Todo 변경 실패 : ' + response.data.message);
             }
             state.isLoading = false;
-        } catch(error) {
+        } catch (error) {
             alert('에러발생 :' + error);
             state.isLoading = false;
         }
-    }
+    };
 
     const deleteTodo = async (id) => {
         state.isLoading = true;
         try {
-            const response = await axios.delete(BASEURI + `/${owner}/${id}`)
+            const response = await axios.delete(BASEURI + `/${owner}/${id}`);
             if (response.data.status === "success") {
                 let index = state.todoList.findIndex((todo) => todo.id === id);
                 state.todoList.splice(index, 1);
-              } else {
+            } else {
                 alert('Todo 삭제 실패 : ' + response.data.message);
-              }
-              state.isLoading = false;
-        } catch(error) {
+            }
+            state.isLoading = false;
+        } catch (error) {
             alert('에러발생 :' + error);
             state.isLoading = false;
         }
-    }
+    };
 
     const toggleDone = async (id) => {
         state.isLoading = true;
         try {
-            const response = await axios.put(BASEURI + `/${owner}/${id}/done`)
+            const response = await axios.put(BASEURI + `/${owner}/${id}/done`);
             if (response.data.status === "success") {
                 let index = state.todoList.findIndex((todo) => todo.id === id);
                 state.todoList[index].done = !state.todoList[index].done;
@@ -103,18 +104,19 @@ export const useTodoListStore = defineStore("todoList2", () => {
                 alert('Todo 완료 변경 실패 : ' + response.data.message);
             }
             state.isLoading = false;
-        } catch(error) {
+        } catch (error) {
             alert('에러발생 :' + error);
             state.isLoading = false;
         }
-    }
+    };
 
-    const todoList = computed(()=>state.todoList);
-    const isLoading = computed(()=>state.isLoading);
-    const doneCount = computed(()=> {
-        const filtered = state.todoList.filter((todoItem)=>todoItem.done === true);
+    const todoList = computed(() => state.todoList);
+    const isLoading = computed(() => state.isLoading);
+    const doneCount = computed(() => {
+        const filtered = state.todoList.filter((todoItem) => todoItem.done === true);
         return filtered.length;
-    })
-    
+    });
+
+    // setup()의 반환값, 각 컴포넌트에서 필요한것만 꺼내지게 됨
     return { todoList, isLoading, doneCount, fetchTodoList, addTodo, deleteTodo, updateTodo, toggleDone };
 });

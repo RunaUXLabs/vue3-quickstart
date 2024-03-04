@@ -1,71 +1,91 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>03-15</title>
-    <style>
-      #list {
-        width: 600px;
-        border: 1px solid black;
-        border-collapse: collapse;
-      }
-      #list td,
-      #list th {
-        border: 1px solid black;
-        text-align: center;
-      }
-      #list > thead > tr {
-        color: yellow;
-        background-color: purple;
-      }
-      .divider {
-        height: 2px;
-        background-color: gray;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="app">
-      <table id="list">
-        <thead>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-15</title>
+  <style>
+    #list {
+      width: 600px;
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    #list td,
+    #list th {
+      border: 1px solid black;
+      text-align: center;
+    }
+
+    #list>thead>tr {
+      color: yellow;
+      background-color: purple;
+    }
+
+    .divider {
+      height: 2px;
+      background-color: gray;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <table id="list">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>이름</th>
+          <th>전화번호</th>
+        </tr>
+      </thead>
+      <tbody id="contacts">
+        <!-- <template>은 렌더링에 포함되지 않는다! 투명그룹
+            단순반복에서는 그 요소에 v-for를 작성하고, 복합구조(또는 조건포함)인
+            경우에는 <template>으로 묶고 v-for를 입력하면 된다. -->
+        <template v-for="(contact, index) in contacts" :key="contact.no">
+          <!-- 반복구간 시작 -->
           <tr>
-            <th>번호</th>
-            <th>이름</th>
-            <th>전화번호</th>
+            <td>{{contact.no}}</td>
+            <td>{{contact.name}}</td>
+            <td>{{contact.tel}}</td>
           </tr>
-        </thead>
-        <tbody id="contacts">
-          <template v-for="(contact, index) in contacts" :key="contact.no">
-            <tr>
-              <td>{{contact.no}}</td>
-              <td>{{contact.name}}</td>
-              <td>{{contact.tel}}</td>
-            </tr>
-            <tr class="divider" v-if="index % 4 === 3">
-              <td colspan="3"></td>
-            </tr>
-          </template>
-        </tbody>
-      </table>
-    </div>
-    <script src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return {
-            contacts: [
-              { no: 1011, name: "RM", tel: "010-3456-8299" },
-              { no: 1012, name: "정국", tel: "010-3456-8298" },
-              { no: 1013, name: "제이홉", tel: "010-3456-8297" },
-              { no: 1014, name: "슈가", tel: "010-3456-8296" },
-              { no: 1015, name: "진", tel: "010-3456-8295" },
-              { no: 1016, name: "뷔", tel: "010-3456-8294" },
-              { no: 1017, name: "지민", tel: "010-3456-8293" },
-            ],
-          };
-        },
-      }).mount("#app");
-    </script>
-  </body>
+          <!-- 반복구간 끝 -->
+
+          <!-- 데이터가 배열로 총 7개가 있다(0~6), 최초 렌더링 0~3까지 출력하고 -->
+          <!-- 조건에 의한 구분선 삽입, v-if는 조건에 맞으면 렌더링이 됨,
+            *반복구간 다음에 작성하면 된다.* -->
+          <tr class="divider" v-if="index % 4 === 3">
+            <!-- %는 나머지를 구하는 연산자이며, 해당 계산값은 피연산자(피연산자까지 되면 몫이 됨)를 넘을 수 없다 -->
+            <td colspan="3"></td>
+          </tr>
+
+          <!-- 조건에 맞은 요소가 렌더링이 되고 나서, 나머지 반복요소(4~6) 연속됨 -->
+        </template>
+
+        <!-- 위 상황 연습해보기,
+           초기데이터에 프로퍼티 하나 추가(값으로는 배열넣기)
+           <template>으로 복합구조 만들어서 조건넣어 반복시켜보기-->
+        <template v-for="(data, index) in addData" :key="index">
+          <!-- :key에 index를 부여하는것은 지양되지만, 데이터의 업데이트가
+          뒤로 붙어서 인덱스가 변하지 않는 경우라면 가능하다. 이 사항은
+          부득이한 조건일 때 사용할 것(고유값인 프라이머리키가 있으면 그걸 쓰고,
+          없는경우에 index가 틀어지지 않는다면 사용가능) -->
+          <tr>
+            <td colspan="3">{{data}}</td>
+          </tr>
+          <tr class="divider" v-if="index % 2 === 1">
+            <td colspan="3"></td>
+          </tr>
+        </template>
+
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="03-15.js"></script>
+</body>
+
 </html>

@@ -1,37 +1,50 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>06-06</title>
-    <style>
-      .buttonColor {
-        background-color: aqua;
-        color: black;
-      }
-      .buttonLayout {
-        text-align: center;
-        width: 120px;
-      }
-      .staticBorder {
-        border: khaki dashed 1px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="app">
-      <button class="staticBorder" :class="[myColor, myLayout]">테스트 버튼</button>
-    </div>
-    <script src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return {
-            myColor: "buttonColor",
-            myLayout: "buttonLayout",
-          };
-        },
-      }).mount("#app");
-    </script>
-  </body>
+<html lang='ko'>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06-06</title>
+  <style>
+    .buttonColor {
+      background-color: aqua;
+      color: black;
+    }
+
+    .buttonLayout {
+      text-align: center;
+      width: 120px;
+    }
+
+    .staticBorder {
+      border: khaki dashed 1px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- :class에도 객체, 변수, 배열 가능 -->
+    <button class="staticBorder" :class="[myColor, myLayout]">테스트 버튼</button>
+    <!-- 응용
+      사용자가 폼에서 선택한 값을 뱉으면
+      (해당값이 내 class명과 같게 설계해놨다는 전제조건)
+      저 값을 받는 새로운 UI에 :class로 연동되게 만들었을 시
+      UI의 class가 적용되는 형태이니 사용자의 선택에 의해
+      커스텀 되는 UI에 적용하면 된다. -->
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    var vm = Vue.createApp({
+      name: "App",
+      data() {
+        return {
+          myColor: "buttonColor",
+          myLayout: "buttonLayout",
+        };
+      },
+    }).mount("#app");
+  </script>
+</body>
+
 </html>

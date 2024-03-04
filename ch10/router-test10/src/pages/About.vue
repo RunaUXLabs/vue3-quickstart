@@ -1,18 +1,20 @@
 <template>
-    <div class="card card-body">
-        <h2>About {{user.name}}</h2>
-        <p>Tel : {{user.tel}}</p>
-        <p>Address : {{user.address}}</p>
-    </div>
+  <div class="card card-body">
+    <h2>About {{ user.name }}</h2>
+    <p>Tel : {{ user.tel }}</p>
+    <p>Address : {{ user.address }}</p>
+  </div>
 </template>
 
 <script>
 import { reactive } from "vue";
 
 export default {
+  // 생명주기 setup(){}이 비동기 처리되게 async/await 걸어두기
   async setup() {
-    const user = reactive({ no:0, name:"", tel:"", address:"" });
+    const user = reactive({ no: 0, name: "", tel: "", address: "" });
     const url = "https://contactsvc.bmaster.kro.kr/contacts_long?pageno=1";
+    // 의도적인 지연 추가(비동기)
     const response = await fetch(url);
     const contactList = await response.json();
     user.no = contactList.contacts[0].no;
@@ -22,5 +24,5 @@ export default {
 
     return { user };
   }
-}
+};
 </script>

@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>03-17</title>
-  </head>
-  <body>
-    <div id="app">
-      <span v-pre>{{message}}</span>
-    </div>
-    <script src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return { message: "Hello World" };
-        },
-      }).mount("#app");
-    </script>
-  </body>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-17</title>
+</head>
+
+<body>
+  <div id="app">
+    <span v-pre>{{message}}</span>
+    <!-- 바인딩 된 데이터를 컴파일 시키지 않는 v-pre.
+     같은 화면구현으로는 일반태그의 <pre>생각하면되는데
+     이태그는 더이상 쓰지않으므로 해당 표현을 쓰고싶으면
+     css에서 텍스트 속성을 바꾸면 된다. -->
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="03-17.js"></script>
+</body>
+
 </html>

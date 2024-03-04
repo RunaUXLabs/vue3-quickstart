@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>03-18</title>
-  </head>
-  <body>
-    <div id="app">
-      <span v-once>{{message}}</span>
-    </div>
-    <script src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return { message: "Hello World" };
-        },
-      }).mount("#app");
-    </script>
-  </body>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-18</title>
+</head>
+
+<body>
+  <div id="app">
+    <span>{{message}}</span>
+    <span v-once>{{message}}</span>
+    <!-- Vue.createApp()으로 초기데이터 렌더링 한
+       vm에 데이터를 변경을 시키면 실시간으로
+       업데이트가 되지만, v-once를 쓰면 초기렌더링
+       이후에 변동이 생겨도 아무런 변화가 없다. -->
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="03-18.js"></script>
+</body>
+
 </html>

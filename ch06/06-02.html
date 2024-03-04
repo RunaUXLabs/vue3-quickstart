@@ -1,33 +1,42 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>06-02</title>
-  </head>
-  <body>
-    <div id="app">
-      <button id="a" :style="style1" @mouseover.stop="overEvent" @mouseout.stop="outEvent">테스트</button>
-    </div>
-    <script src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return {
-            style1: { backgroundColor: "aqua", color: "black" },
-          };
+<html lang='ko'>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06-02</title>
+</head>
+
+<body>
+  <div id="app">
+    <button id="a" :style="style1" @mouseover.stop="overEvent" @mouseout.stop="outEvent">테스트</button>
+    <!-- 기본 인라인스타일을 객체로 빼서 v-bind:style='키이름'으로
+      연결할수 있다. 수식어를 더해서 hover 이벤트도 구현가능하다.
+      하지만 디자인만 바뀌는 hover 이벤트라면
+      기본 css에서 구성하는것이 편함-->
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    var vm = Vue.createApp({
+      name: "App",
+      data() {
+        return {
+          style1: { backgroundColor: "aqua", color: "black" },
+        };
+      },
+      methods: {
+        overEvent() {
+          this.style1.backgroundColor = "purple";
+          this.style1.color = "yellow";
         },
-        methods: {
-          overEvent() {
-            this.style1.backgroundColor = "purple";
-            this.style1.color = "yellow";
-          },
-          outEvent() {
-            this.style1.backgroundColor = "aqua";
-            this.style1.color = "black";
-          },
+        outEvent() {
+          this.style1.backgroundColor = "aqua";
+          this.style1.color = "black";
         },
-      }).mount("#app");
-    </script>
-  </body>
+      },
+    }).mount("#app");
+  </script>
+</body>
+
 </html>

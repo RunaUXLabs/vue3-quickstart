@@ -1,39 +1,51 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>06-07</title>
-    <style>
-      .buttonColor {
-        background-color: aqua;
-        color: black;
-      }
-      .buttonLayout {
-        text-align: center;
-        width: 120px;
-      }
-      .staticBorder {
-        border: khaki dashed 1px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="app">
-      <input type="checkbox" v-model="isMyLayout" />레이아웃 적용 여부<br />
-      <button class="staticBorder" :class="[myColor, isMyLayout ? myLayout : '' ]">테스트 버튼</button>
-    </div>
-    <script src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return {
-            myColor: "buttonColor",
-            myLayout: "buttonLayout",
-            isMyLayout: false,
-          };
-        },
-      }).mount("#app");
-    </script>
-  </body>
+<html lang='ko'>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06-07</title>
+  <style>
+    .buttonColor {
+      background-color: aqua;
+      color: black;
+    }
+
+    .buttonLayout {
+      text-align: center;
+      width: 120px;
+    }
+
+    .staticBorder {
+      border: khaki dashed 1px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <input type="checkbox" v-model="isMyLayout">레이아웃 적용 여부<br>
+    <!-- 사용자가 체크박스 선택여부에 따라 true/false가 반환되고,
+      이는 isMyLayout에 v-model연동이 되며  -->
+    <button class="staticBorder" :class="[myColor, isMyLayout ? myLayout : '' ]">테스트 버튼</button>
+    <!-- 기본 클래스를 갖고 연동되면 myColor가 추가되는 화면에서
+      isMyLayout의 true/false에 의해 중복클래스명 isMyLayout의
+      추가여부가 결정된다. -->
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    var vm = Vue.createApp({
+      name: "App",
+      data() {
+        return {
+          myColor: "buttonColor",
+          myLayout: "buttonLayout",
+          isMyLayout: false,
+        };
+      },
+    }).mount("#app");
+  </script>
+</body>
+
 </html>

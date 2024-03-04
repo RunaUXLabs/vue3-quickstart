@@ -1,29 +1,22 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>03-20</title>
-  </head>
-  <body>
-    <div id="app">
-      <img v-bind:[image1.srcattr]="image1.src" :[image1.titleattr]="image1.title" />
-    </div>
-    <script type="text/javascript" src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return {
-            image1: {
-              srcattr: "src",
-              src: "https://contactsvc.bmaster.kro.kr/photos/18.jpg",
-              titleattr: "title",
-              title: "Lily's photo",
-            },
-          };
-        },
-      }).mount("#app");
-    </script>
-  </body>
+<html lang='ko'>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-20</title>
+</head>
+
+<body>
+  <div id="app">
+    <img v-bind:[image1.srcattr]="image1.src" :[image1.titleattr]="image1.title">
+    <!-- v-bind 생략형 -->
+    <img :[image1.srcattr]="image1.src" :[image1.titleattr]="image1.title">
+    <!-- 동적아규먼트를 이렇게 쓰면 번잡하니 비추, 03-21예제 처럼 쓰는 것을 추천함 -->
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="03-20.js"></script>
+</body>
+
 </html>

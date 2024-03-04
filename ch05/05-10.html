@@ -1,27 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>05-10</title>
-  </head>
-  <body>
-    <div id="app">
-      금액 : <input type="text" v-model.number="amount" /><br />
-      <button @click="balance += parseInt(amount)">입금</button>
-      <button @click="balance -= parseInt(amount)">인출</button>
-      <button @click.once="balance += 10000">계좌 개설 이벤트</button>
-      <br />
-      <h3>계좌 잔고 : {{balance}}</h3>
-    </div>
-    <script type="text/javascript" src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return { amount: 0, balance: 0 };
-        },
-      }).mount("#app");
-    </script>
-  </body>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05-10</title>
+</head>
+
+<body>
+  <div id="app">
+    금액 : <input type="text" v-model.number="amount"><br>
+    <button @click="balance += parseInt(amount)">입금</button>
+    <button @click="balance -= parseInt(amount)">인출</button>
+    <button @click.once="balance += 10000">계좌 개설 이벤트</button>
+    <!-- .once라는 수식어를 이용하여 이벤트를 1회로 만들수는 있지만,
+    클릭 1회로 단순히 처리할 문제가아니다. UX관점에서 접근하여
+    사용성을 개선한다면, 사용자가 참여하고 그에따른 고유값부여를 통해
+    중복참여가 안되도록 막는것이 필요하지, 그냥 클릭으로써 1회만 부여하는
+    것은 UX개선에서 지양되는 부분이다.  -->
+    <br>
+    <h3>계좌 잔고 : {{balance}}</h3>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    var vm = Vue.createApp({
+      name: "App",
+      data() {
+        return { amount: 0, balance: 0 };
+      },
+    }).mount("#app");
+  </script>
+</body>
+
 </html>

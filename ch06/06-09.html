@@ -1,41 +1,50 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>06-06</title>
-    <style>
-      .bColor {
-        background-color: aqua;
-        color: black;
-      }
-      .bLayout {
-        text-align: center;
-        width: 120px;
-      }
-      .bBorder {
-        border: khaki dashed 1px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="app">
-      <button :class="myStyle">버튼1</button>
-      <p>
-        <input type="checkbox" v-model="myStyle.bColor" value="true" />색상<br />
-        <input type="checkbox" v-model="myStyle.bLayout" value="true" />정렬,크기<br />
-        <input type="checkbox" v-model="myStyle.bBorder" value="true" />테두리선<br />
-      </p>
-    </div>
-    <script src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return {
-            myStyle: { bColor: false, bLayout: false, bBorder: false },
-          };
-        },
-      }).mount("#app");
-    </script>
-  </body>
+<html lang='ko'>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06-06</title>
+  <style>
+    .bColor {
+      background-color: aqua;
+      color: black;
+    }
+
+    .bLayout {
+      text-align: center;
+      width: 120px;
+    }
+
+    .bBorder {
+      border: khaki dashed 1px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 06-08에선 객체였던것이 변수(키)로 바뀜, 초기렌더링 함수의 반환 객체 키에 있음. -->
+    <button :class="myStyle">버튼1</button>
+    <p>
+      <input type="checkbox" v-model="myStyle.bColor" value="true">색상<br>
+      <input type="checkbox" v-model="myStyle.bLayout" value="true">정렬,크기<br>
+      <input type="checkbox" v-model="myStyle.bBorder" value="true">테두리선<br>
+      <!-- 체크여부에 따라 true/false값을 myStyle의 각 키에 전달을 한다 -->
+    </p>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    var vm = Vue.createApp({
+      name: "App",
+      data() {
+        return {
+          // v-model에 의하여 변동된 true/false값에 따라 해당 키 이름이 엘리먼트의 클래스로 전달 된다.
+          myStyle: { bColor: false, bLayout: false, bBorder: false },
+        };
+      },
+    }).mount("#app");
+  </script>
+</body>
+
 </html>

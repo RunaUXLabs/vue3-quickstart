@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>03-04</title>
-  </head>
-  <body>
-    <div id="app">
-      <input id="a" type="text" v-model="name" />
-      <br />
-      입력하신 이름 : <span>{{name}}</span>
-    </div>
-    <script type="text/javascript" src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return { name: "" };
-        },
-      }).mount("#app");
-    </script>
-  </body>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-04</title>
+</head>
+
+<body>
+  <div id="app">
+    <input id="a" type="text" v-model="name">
+    <br>
+    입력하신 이름 : <span>{{name}}</span>
+    <!-- 초기렌더링에서는 ""이기때문에 아무것도 안뜸.
+     input요소에 v-model="name" 양방향 바인딩이 설정되었으므로
+     사용자가 값을 변경을 했을때, 스크립트에 있는 name의 값을 변동하고
+     {{name}}을 가지고와서 화면에 뿌려줌 -->
+
+    <!-- 단방향 바인딩은 초기화값 셋팅용, 양방향 바인딩은 UI의 인터렉션에 사용하면 좋다 -->
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="03-04.js"></script>
+</body>
+
 </html>

@@ -1,29 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>03-08</title>
-  </head>
-  <body>
-    <div id="app">
-      <input id="a" type="text" :value="name" @input="changeName" />
-      <br />
-      입력하신 이름 : <span>{{name}}</span>
-    </div>
-    <script type="text/javascript" src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return { name: "" };
-        },
-        methods: {
-          changeName(e) {
-            this.name = e.target.value;
-          },
-        },
-      }).mount("#app");
-    </script>
-  </body>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-08</title>
+</head>
+
+<body>
+  <h1></h1>
+  <div id="app">
+    <h2>v-model의 고질병</h2>
+    <p>한글은 조합활자이기 때문에 작성중인 입력값을 실시간전달 안됨, 부드럽지 못함</p>
+    <input id="a1" type="text" v-model="name1">
+    입력하신 이름 : <span>{{name1}}</span>
+
+    <h2>위 상황 이벤트로 해결</h2>
+    <p>이벤트 타겟에서 value를 뜯어오는 방식으로 함수콜링을 시키면 실시간으로 전달되는 모습을 보인다. v-model 사용하지 않고 v-bind 사용, v-model에 다른옵션을 추가해서 보완하는 개념이
+      아니고 다른방식으로 v-model처럼 보이게 만드는 것이다.</p>
+    <input id="a2" type="text" :value="name2" @input="changeName">
+    입력하신 이름 : <span>{{name2}}</span>
+    <br>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="03-08.js"></script>
+</body>
+
 </html>

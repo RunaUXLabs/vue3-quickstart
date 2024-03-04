@@ -1,23 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>01-01</title>
-  </head>
-  <body>
-    <div id="app">
-      <h2>{{message}}</h2>
-    </div>
-    <script type="text/javascript" src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var model = { message: "Hello Vue3!" };
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return model;
-        },
-      }).mount("#app");
-    </script>
-  </body>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01-01</title>
+</head>
+
+<body>
+  <div id="app">
+    <h2>{{message}}</h2>
+    <h2>{{txt}}</h2>
+    <!-- 3. 스크립트에서 초기데이터 렌더링 부분에 객체를 써놓으면 머스태시에서 해당객체의 키 이름을 쓰면 해당키에 할당된 값이 출력된다. {{ 키이름 }} -->
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    var model = { message: "Hello Vue3!" }; // 객체선언
+    var model2 = {
+      message: "머스태시 연결!",
+      txt: 'html에 입력하고싶은 내용'
+    };
+    // 1.기본데이터를 불러올 때 양이 많으면 json을 가지고와서 파싱했음 => 객체
+    var vm = Vue.createApp({
+      name: "App",
+      data() {
+        // return model;
+        return model2;
+        // 2.초기데이터 렌더링, 객체의 변수명을 반환해라 명령
+      },
+    }).mount("#app");
+  </script>
+</body>
+
 </html>

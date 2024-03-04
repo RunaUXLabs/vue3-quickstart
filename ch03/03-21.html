@@ -1,27 +1,20 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>03-21</title>
-  </head>
-  <body>
-    <div id="app">
-      <img v-bind="image1" />
-    </div>
-    <script type="text/javascript" src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return {
-            image1: {
-              src: "https://contactsvc.bmaster.kro.kr/photos/18.jpg",
-              title: "Lily's photo",
-            },
-          };
-        },
-      }).mount("#app");
-    </script>
-  </body>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-21</title>
+</head>
+
+<body>
+  <div id="app">
+    <img v-bind="image1">
+    <!-- 동적 아규먼트 쉽게 쓰는 방식, v-bind로 데이터에 연결했을 때, 데이터 형식이 객체인 경우,키이름이 attribute와 동일하면 바로 attribute로 자동 바인딩된다. -->
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="03-21.js"></script>
+</body>
+
 </html>

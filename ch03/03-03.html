@@ -1,26 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>03-03</title>
-  </head>
-  <body>
-    <div id="app">
-      <input id="a" type="text" v-bind:value="message">
-      <img :src="imagePath" />
-    </div>
-    <script type="text/javascript" src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return {
-            message: "v-bind 디렉티브",
-            imagePath: "https://contactsvc.bmaster.kro.kr/photos/18.jpg",
-          };
-        },
-      }).mount("#app");
-    </script>
-  </body>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-03</title>
+</head>
+
+<body>
+  <h1>v-bind:attribute명='키이름'</h1>
+  <div id="app">
+    <!-- v-bind:attribute명='키이름' 태그의 옵션값을 단방향으로 연결하는 방식,
+    v-bind는 생략 가능하며, :attribute명='키이름' 줄여쓸 수 있다. -->
+    <input id="a" type="text" v-bind:value="message">
+    <!-- 렌더링함수 data()의 return객체의 message키의 값이 value에 참조 -->
+    <img :src="imagePath">
+    <!-- 렌더링함수 data()의 return객체의 imagePath 값이 src에 참조 -->
+
+    <!-- 연습, form 요소들 중에서 옵션(attribute)이 다양한 것을
+       2개 골라서 참조시켜보자 -->
+    <h2>연습해보기</h2>
+    <a :href="link" target="_blank">네이버</a>
+    <form>
+      <h3>탕수육 먹기</h3>
+      <label for="source1">찍먹</label>
+      <input type="radio" :name="source" id="source1" checked>
+      <label for="source2">부먹</label>
+      <input type="radio" :name="source" id="source2">
+    </form>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="03-03.js"></script>
+</body>
+
 </html>

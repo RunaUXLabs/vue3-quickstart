@@ -1,27 +1,28 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>03-11</title>
-  </head>
-  <body>
-    <div id="app">
-      잔고 : <input type="text" v-model="balance" />
-      <br />
-      회원님의 등급 :
-      <span v-if="balance >= 1000000">Gold</span>
-      <span v-else-if="balance >= 500000">Silver</span>
-      <span v-else-if="balance >= 200000">Bronze</span>
-      <span v-else>Basic</span>
-    </div>
-    <script type="text/javascript" src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-      var vm = Vue.createApp({
-        name: "App",
-        data() {
-          return { balance: 0 };
-        },
-      }).mount("#app");
-    </script>
-  </body>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-11</title>
+</head>
+
+<body>
+  <div id="app">
+    잔고 : <input type="text" v-model="balance">
+    <br>
+    회원님의 등급 :
+    <span v-if="balance >= 1000000">Gold</span>
+    <span v-else-if="balance >= 500000">Silver</span>
+    <span v-else-if="balance >= 200000">Bronze</span>
+    <span v-else>Basic</span>
+    <!-- 초기 렌더링 함수에서 기본값 0이 선언되어 있어
+       초기에 Basic 출력, 사용자가 잔고를 수정하면 
+      v-model="balance"가 수정이 되고, 이는 렌더링 함수로 
+    전달이 되서 v-if, else-if, else에 의해 택 1을 한다. -->
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="03-11.js"></script>
+</body>
+
 </html>
