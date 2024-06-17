@@ -7,4 +7,4 @@ function outer() {
         console.log(msg);
     }
 }
-outer()
+outer();

@@ -1,8 +1,4 @@
-"use strict";
-
-var obj = {
-  result: 0
-};
+var obj = { result: 0 };
 obj.add = function (x, y) {
   function inner() {
     this.result = x + y;
@@ -11,4 +7,5 @@ obj.add = function (x, y) {
   inner();
 };
 obj.add(3, 4);
+
 console.log(obj); // { result: 7 }
