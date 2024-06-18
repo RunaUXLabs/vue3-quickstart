@@ -1,6 +1,8 @@
+"use strict";
+
 // p.35 메서드, 함수가 호출될 때마다 현재 호출중인 메서드를 보유한 객체가 this로 연결된다.
-var add = function (x, y) {
-    this.result = x + y;
+var add = function add(x, y) {
+  this.result = x + y;
 };
 console.log(add);
 var obj = {};

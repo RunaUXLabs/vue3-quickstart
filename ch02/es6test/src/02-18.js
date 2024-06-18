@@ -1,10 +1,15 @@
 const d1 = new Date();
 let name = "홍길동";
-let r1 = `${name} 님에게 ${d1.toDateString() }에 연락했다.`;
+let r1 = `${name} 님에게 ${d1.toDateString()}에 연락했다.`;
+// 날짜객체에서 메서드를 활용하여 원하는 부분을 뜯어낼 수 있지만, 영어권 기준으로 도출됨. 이터내셔널 구문을 이용하면 각 나라 문화권에 맞는 날짜를 도출할 수 있으니 활용해 볼 것!
 console.log(r1);
 
-let product = "갤럭시S7";
+let product = "갤럭시s20 중고폰";
 let price = 199000;
 let str = `${product}의 가격은
+
+
         ${price}원 입니다.`;
+// 백팃 안에 엔터 칠 수 있지만, 들여쓰기되는 모든 공백을 인식한다.
+// 단순 줄바꿈만 쓰고 싶으면 이스케이프 문자를 사용하여 연속되게 기술하고 줄바꿈이 적용되는것을 확인하면 된다.
 console.log(str);

@@ -1,4 +1,8 @@
-var obj = { result: 0 };
+"use strict";
+
+var obj = {
+  result: 0
+};
 obj.add = function (x, y) {
   function inner() {
     // 함수 중첩구조

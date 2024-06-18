@@ -1,4 +1,9 @@
-const p1 = { name: "john", age: 20 };
+"use strict";
+
+var p1 = {
+  name: "john",
+  age: 20
+};
 // p1.age = 22; // 객체의 점표기법 객체명.키
 // 대괄호표기법
 p1["age"] = 30;

@@ -1,4 +1,8 @@
-var obj = { result: 0 };
+"use strict";
+
+var obj = {
+  result: 0
+};
 obj.add = function (x, y) {
   function inner() {
     //선언식 함수사용

@@ -1,6 +1,10 @@
-var obj = { result: 0 };
+"use strict";
+
+var obj = {
+  result: 0
+};
 obj.add = function (x, y) {
-   this.result = x + y;
+  this.result = x + y;
 };
 var add2 = obj.add;
 console.log(add2 === obj.add); //true, 메모리 주소가 복사, 동일한 함수
