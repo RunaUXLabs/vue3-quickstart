@@ -10,8 +10,8 @@
 <body>
   <div id="app">
     예금액 : <input type="text" v-model="amount">
-    <img v-show="amount < 0" src="https://contactsvc.bmaster.kro.kr/img/error.png" title="마이너스는 허용하지 않습니다"
-      style="width: 15px; height: 15px; vertical-align: middle">
+    <img v-show="amount < 0 || isNaN(amount)" src="https://contactsvc.bmaster.kro.kr/img/error.png"
+      title="마이너스 또는 문자열은 허용하지 않습니다" style="width: 15px; height: 15px; vertical-align: middle">
     <!-- 기본적으로는 안보임(display none), 조건이 만족되면 보인다.
     렌더링은 이미 되어있고, 화면에만 안보이게 처리 -->
   </div>
