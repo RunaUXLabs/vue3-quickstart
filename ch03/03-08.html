@@ -19,6 +19,7 @@
     <p>이벤트 타겟에서 value를 뜯어오는 방식으로 함수콜링을 시키면 실시간으로 전달되는 모습을 보인다. v-model 사용하지 않고 v-bind 사용, v-model에 다른옵션을 추가해서 보완하는 개념이
       아니고 다른방식으로 v-model처럼 보이게 만드는 것이다.</p>
     <input id="a2" type="text" :value="name2" @input="changeName">
+    <!-- 해당 인풋에 이벤트를 걸어 changeName 이라는 함수가 콜링되게 만든다. 여기에서 함수이름만 써야한다(자스에서 이벤트 처리의 기본, ()쓰면 즉시실행되기 때문!) -->
     입력하신 이름 : <span>{{name2}}</span>
     <br>
   </div>
