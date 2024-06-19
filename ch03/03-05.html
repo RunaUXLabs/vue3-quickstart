@@ -16,11 +16,11 @@
       <input type="checkbox" id="hobbyB" value="B" v-model="hobby">
       <label for="hobbyB">독서</label><br>
       <input type="checkbox" id="hobbyC" value="C" v-model="hobby">
-      <label for="hobbyB">음악</label><br>
+      <label for="hobbyC">음악</label><br>
       <input type="checkbox" id="hobbyD" value="D" v-model="hobby">
-      <label for="hobbyB">댄스</label><br>
+      <label for="hobbyD">댄스</label><br>
       <input type="checkbox" id="hobbyE" value="E" v-model="hobby">
-      <label for="hobbyB">역사</label><br>
+      <label for="hobbyE">역사</label><br>
     </div>
     <div>
       <h2>상품 분류 선택</h2>
@@ -33,6 +33,13 @@
         <option value="C05">주방</option>
       </select>
     </div>
+    <!-- 응용해보기
+      v-model 양방향디렉티브에 대한 개념을 이해했다면
+
+      1.data()에서 초기값 만들어놓기
+      2.템플릿에 새로운 폼식구들 넣기
+      3.맨 아래에 있는 div에 연동되는 머스태시 작성
+    -->
     <hr>
     <div>
       선택한 취미 : {{hobby.join(',')}} <br>
