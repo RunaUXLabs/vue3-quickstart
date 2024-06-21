@@ -9,18 +9,36 @@
 
 <body>
   <div id="app">
+    <!-- 5-1예제 -->
     금액 : <input type="text" v-model.number="amount"><br>
     <!-- v-on:이벤트명='실행문'으로 이벤트 처리, 축약형 @이벤트명='실행문' -->
     <button v-on:click="balance += parseInt(amount)">입금</button>
     <button v-on:click="balance -= parseInt(amount)">인출</button>
-    <!-- 한국기준 금융관련 데이터를 처리하면 parseInt()처리가 필요하지만, 그외 지역에서는 소숫점이 통화에 사용되므로 정수처리는 선택적으로 해야한다. -->
-
-    <button v-on:click="test($event)">이벤트객체 확인</button>
-    <!-- 자스에서 이벤트 객체를 확인하는 용도로 함수에서 e를 많이쓰는데(파라미터에 뭘 넣든지 간에 이벤트 객체를 활용할 수 있었음), vue에서는 정확하게 인자를 $event라고 넣어줘야 객체를 확인할 수 있다.
-    쌩으로 함수를 넣으면 실행불가, 인스턴스의 옵션 methods에 함수를 작성하여 해당함수를 콜링하는 형식이어야 한다. -->
-    <button v-on:click="test2">일반함수 계산 확인</button>
+    <!-- 한국기준 금융관련 데이터를 처리하면 parseInt()처리가 필요하지만,
+      그외 지역에서는 소숫점이 통화에 사용되므로 정수처리는 선택적으로 해야한다. -->
     <br>
     <h3>계좌 잔고 : {{balance}}</h3>
+
+
+    <hr>
+    <!-- 이벤트 처리에 대한 경우의 수, 05-01 ~ 05-04케이스 모음 -->
+
+    <button v-on:click="test($event)">1. 이벤트객체 확인</button>
+    <!-- 자스에서 이벤트 객체를 확인하는 용도로 함수에서 e를 많이쓰는데(파라미터에 뭘 넣든지 간에 이벤트 객체를 활용할 수 있었음), vue에서는 정확하게 인자를 $event라고 넣어줘야 객체를 확인할 수 있다. e라던가 다른 인자를 넣으면 이벤트 객체가 출력되지 않으며, 아예 안쓰고 콜링하면(4번케이스) 그땐 이벤트객체가 출력됨  -->
+
+    <button v-on:click="test2">2. 일반함수 확인</button>
+    <!-- <input id="a" type="text" :value="name" @input="(e) => this.name = e.target.value"> -->
+    <!-- 인스턴스의 옵션 methods에 함수를 작성하여 해당함수를 콜링하는 형식이어야 한다. 1줄정도의 실행문이라면 화살표 함수 활용해서 작성 가능 -->
+
+    <button @:click="test($event), test2($event)">3. 이벤트2개이상 연결확인</button>
+    <!-- 일반스크립트에서 addEventListener를 이용하여 메서드 여러개 연결할 수 있었는데,
+    vue에서 똑같이 구현하려면 @click="메서드명1($event), 메서드명2($event)"처럼
+    ,로 구분하여 연속적으로 작성하면 된다.
+    필수!!!) 호출하고자하는 메서드의 인자에 무조건 $event를 넣어줄 것(각 함수에서 인자가 필요한 경우가 아니어도 무조건 넣어준다.)! -->
+
+    <button @:click="test3">4. 한 함수에 이벤트 객체와 일반실행문이 합쳐진 함수확인</button>
+    <!-- test와 test2를 합친 함수test3을 만들어서 실행시키고자 한다면, $event인자를 넣을 필요없이 콜링시 test3라고만 써도 이벤트객체와 모든 실행문의 결과를 얻을 수 있음. -->
+
   </div>
   <script src="https://unpkg.com/vue"></script>
   <script>
@@ -34,12 +52,17 @@
         test(e) {
           console.log(e);
         },
-        test2(amount, balance) {
+        test2() {
           let result = this.amount + this.balance;
           console.log(result);
           return result;
+        },
+        test3(e) {
+          let result = this.amount + this.balance;
+          console.log(e);
+          console.log(result);
+          return result;
         }
-
       }
     }).mount("#app");
   </script>

@@ -13,10 +13,7 @@
     <button @click="deposit">입금</button>
     <button @click="withdraw">인출</button>
     <!-- v-on:click="메서드명" 으로 써야하는 형식을  @click="메서드명"으로
-    줄여쓰기 가능하다.
-    일반스크립트에서 addeventlitener를 이용하여 메서드 여러개 연결할 수 있었는데,
-    vue에서 똑같이 구현하려면 @click="메서드명1, 메서드명2"처럼
-    ,로 구분하여 연속적으로 작성하면 된다 -->
+    줄여쓰기 가능하다. -->
     <br>
     <h3>계좌 잔고 : {{balance}}</h3>
   </div>
@@ -32,6 +29,7 @@
           let amt = parseInt(this.amount);
           if (amt <= 0) {
             alert("0보다 큰 값을 예금해야 합니다");
+            // 사용자에게 피드백을 줄 수 있는 UI(모달, 텍스트표시)를 다양하게 고민해 보자
           } else {
             this.balance += amt;
           }

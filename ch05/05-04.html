@@ -9,11 +9,10 @@
 
 <body>
   <div id="app">
-    <!-- <input id="a" type="text" :value="name" @input="(e) => this.name = e.target.value"> -->
-    <!-- 일반 스크립트에서 화살표함수 안에서 this는 window 객체를 가르키기 때문에 이벤트가 일어나는 대상으로 지칭을 할 수 없다.
-    하지만 UI 프레임워크에서 화살표함수 내의 this는 createApp()에 의해 생성된 인스턴스 객체를 의미한다. -->
-    <input id="a" type="text" :value="name" @input="function(e){ this.name = e.target.value }">
-    <!-- 일반함수를 쓰고 this를 썼는데 오히려 작동이 안됨(this가 window객체를 가리킴) -->
+    <input id="a" type="text" :value="name" @input="(e) => this.name = e.target.value">
+    <!-- 일반 스크립트에서 화살표함수 안에서 this는 window 객체를 가르키기 때문에 이벤트가 일어나는 대상으로 지칭을 할 수 없다. 하지만 UI 프레임워크에서 화살표함수 내의 this는 createApp()에 의해 생성된 인스턴스 객체를 의미한다. -->
+    <input id="b" type="text" :value="name" @input="function(e){ this.name = e.target.value; console.log(e); }">
+    <!-- 일반함수를 쓰고 this를 썼는데 오히려 작동이 안됨(this가 window객체를 가르켜서 반응성이 일어나지 않는다). e는 인식하여 이벤트 객체 찍어줌. -->
     <br>
     입력하신 이름 : <span>{{name}}</span>
   </div>

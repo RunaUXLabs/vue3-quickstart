@@ -12,6 +12,7 @@
     <input id="a" type="text" :value="name" @input="changeName">
     <br>
     입력하신 이름 : <span>{{name}}</span>
+    <!-- 한글 입력시 v-model이 활자 입력 못하는 부분을 이벤트처리로 대응 -->
   </div>
 
   <script src="https://unpkg.com/vue"></script>
