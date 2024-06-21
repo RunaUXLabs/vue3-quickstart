@@ -10,8 +10,15 @@
 <body>
   <div id="app">
     금액 : <input type="text" v-model.number="amount"><br>
+    <!-- v-on:이벤트명='실행문'으로 이벤트 처리, 축약형 @이벤트명='실행문' -->
     <button v-on:click="balance += parseInt(amount)">입금</button>
     <button v-on:click="balance -= parseInt(amount)">인출</button>
+    <!-- 한국기준 금융관련 데이터를 처리하면 parseInt()처리가 필요하지만, 그외 지역에서는 소숫점이 통화에 사용되므로 정수처리는 선택적으로 해야한다. -->
+
+    <button v-on:click="test($event)">이벤트객체 확인</button>
+    <!-- 자스에서 이벤트 객체를 확인하는 용도로 함수에서 e를 많이쓰는데(파라미터에 뭘 넣든지 간에 이벤트 객체를 활용할 수 있었음), vue에서는 정확하게 인자를 $event라고 넣어줘야 객체를 확인할 수 있다.
+    쌩으로 함수를 넣으면 실행불가, 인스턴스의 옵션 methods에 함수를 작성하여 해당함수를 콜링하는 형식이어야 한다. -->
+    <button v-on:click="test2">일반함수 계산 확인</button>
     <br>
     <h3>계좌 잔고 : {{balance}}</h3>
   </div>
@@ -22,6 +29,18 @@
       data() {
         return { amount: 0, balance: 0 };
       },
+      methods: {
+        // 일반 자스에서는 함수를 콜링할 때 인자를 넣어서 콜링한다. 하지만 vue에서는 함수이름만 콜링한다. 인자 어따넣음??? 생각할 수 있다. methods에서 함수를 구성할 때, 어떤 인자들이 들어가는지를 설정해서 함수를 구성해야한다.
+        test(e) {
+          console.log(e);
+        },
+        test2(amount, balance) {
+          let result = this.amount + this.balance;
+          console.log(result);
+          return result;
+        }
+
+      }
     }).mount("#app");
   </script>
 </body>
