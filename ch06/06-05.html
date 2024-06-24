@@ -9,15 +9,18 @@
     .buttonColor {
       background-color: aqua;
       color: black;
+      border: blue dashed 1px;
     }
 
     .buttonLayout {
       text-align: center;
       width: 120px;
+      border: red dashed 1px;
     }
 
     .staticBorder {
       border: khaki dashed 1px;
+      /* 초깃값(스태택)으로 적용된 부분이 렌더링 후에 바인딩 되는 클래스에 따라 덮어쓰기가 되는데, 최초 스태택이 선점한 값은 덮어쓰기가 안된다. 아래 주석에서 최초화면 출력의 완성도를 높일수 있다는것과 연결해서 볼 것.  */
     }
   </style>
 </head>
@@ -27,7 +30,7 @@
     <button class="staticBorder" :class="myColor">테스트 버튼</button>
     <!-- class는 초깃값, :class는 인스턴스 객체가 생성되면 추가되는 값
     렌더링 부분에 문제가 있을 때 초깃값이 되어 있으니 최초 화면 출력에
-    완성도를 높일 수 있다. -->
+    완성도를 높일 수 있다. 스태틱으로 입력된 클래스가 우선순위가 높다. -->
   </div>
 
   <script src="https://unpkg.com/vue"></script>
@@ -36,7 +39,8 @@
       name: "App",
       data() {
         return {
-          //myColor: "buttonColor buttonLayout",
+          // myColor: "buttonColor buttonLayout",
+          // 해당 키의 값의 형태를 css의 중복클래스 적용방식으로 문자열을 완성!
         };
       },
     }).mount("#app");
