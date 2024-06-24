@@ -24,14 +24,14 @@ var vm = Vue.createApp({
     // 삭제 기능의 흐름을 잘 파악해 둘 것
     deleteTodo(id) {// 파라미터로 고유값을 넣었다, 해당 id를 가진 리스트를 삭제
       let index = this.todolist.findIndex((item) => id === item.id);
-      // item으로 들어온 파라미터의 id와 deleteTodo의 파라미터와 같은지를 비교하여 반환된 해당 해당 item을 this.todolist.findIndex()한다. 그 인덱스를 변수에다가 할당해라.
+      // item으로 들어온 파라미터의 id와 deleteTodo의 파라미터와 같은지를 비교하여 반환된 해당 item을 this.todolist.findIndex()한다. 그 인덱스를 변수에다가 할당해라.
       this.todolist.splice(index, 1);
       // 위에서 도출된 인덱스를 todolist에서 찾아가 1개를 삭제해라
     },
     toggleCompleted(id) {
       let index = this.todolist.findIndex((item) => id === item.id);
       this.todolist[index].completed = !this.todolist[index].completed;
-      // 리트에서 해당 인덱스에 해당하는 할일이 완료여부를 뒤집어서 해당 할일에 할당해라(completed: false로 최초 생성된 할일을 true로 변경)
+      // todolist에서 해당 인덱스에 해당하는 할일이 완료여부를 뒤집어서 해당 할일에 할당해라(completed: false로 최초 생성된 할일을 true로 변경)
     },
   },
 }).mount("#app");
