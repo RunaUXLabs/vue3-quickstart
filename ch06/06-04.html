@@ -17,6 +17,7 @@
   <script>
     var vm = Vue.createApp({
       name: "App",
+      // 최초 렌더링 되는 데이터엔 실제 데이터도 되지만, 스타일링을 위한 css문법도 가능하다. 데이터함수의 리턴값으로 객체를 뱉어야 하는데, 해당 객체를 설계할때 스타일과 데이터를 몽땅 넣을 수 있다. 마크업 부분에서 골라부르면 되기 때문!
       data() {
         return {
           myColor: { backgroundColor: "purple", color: "yellow" },
