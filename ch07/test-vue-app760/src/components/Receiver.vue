@@ -1,5 +1,5 @@
 <template>
-  <div style="border:solid 1px gray; margin:5px; padding:5px;">
+  <div class="box">
     <h2>Receiver</h2>
     <hr />
     <h2>전송된 텍스트 : {{ textMessage }}</h2>
@@ -10,6 +10,7 @@
 <script>
 export default {
   name: "Receiver",
+  // 생명주기로 이벤트 관계 연결
   created() {
     this.emitter.on("message", this.receiveHandler);
   },
@@ -27,3 +28,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.box {
+  border: solid 1px gray;
+  padding: 5px;
+  box-sizing: border-box;
+}
+</style>

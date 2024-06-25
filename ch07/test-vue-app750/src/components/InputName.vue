@@ -1,10 +1,9 @@
 <template>
-    <div style="border:solid 1px gray; padding:5px;">
+    <div class="box">
         이름 : <input type="text" v-model="name" />
         <button @click="$emit('nameChanged', { name })">이벤트 발신</button>
-        <!-- v-on디렉티브를 이용하여 $emit('이벤트명', 인자)을 부모로 전달한다 -->
-        <!-- { name }은 name키에 name값(인풋을 통해 들어온 값을 변수 name에 할당)으로
-             구성된 것을 줄여쓴 표현이다 -->
+        <!-- v-on디렉티브를 이용하여 $emit('이벤트명', 이벤트아규먼트)을 부모로 전달한다. 부모는 전달받은 아규먼트를 데이터로 넘긴다. -->
+        <!-- { name }은 name키에 name값(인풋을 통해 들어온 값을 변수 name에 할당)으로 구성된 것을 줄여쓴 표현이다, 객체리터럴 방식 -->
     </div>
 </template>
 
@@ -25,3 +24,11 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.box {
+    border: solid 1px gray;
+    padding: 5px;
+    box-sizing: border-box;
+}
+</style>
