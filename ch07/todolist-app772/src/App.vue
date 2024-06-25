@@ -7,20 +7,23 @@
       <div class="card-body">
         <InputTodo @add-todo="addTodo" />
         <TodoList :todoList="todoList" @delete-todo="deleteTodo" @toggle-completed="toggleCompleted" />
+        <!-- 모이는 장소에 이벤트를 작성한다(methods에 함수설정하고 연결)  -->
       </div>
     </div>
   </div>
 </template>
 
-<script>
-import TodoList from './components/TodoList.vue';
+<script setup>
 import InputTodo from './components/InputTodo.vue';
+import TodoList from './components/TodoList.vue';
+</script>
 
+<script>
 let ts = new Date().getTime();
 
 export default {
   name: "App",
-  components: { InputTodo, TodoList },// <script setup>이 아닌경우 필수 입력
+  // components: { InputTodo, TodoList },// <script setup>이 아닌경우 필수 입력
   data() {
     return {
       todoList: [
