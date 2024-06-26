@@ -6,10 +6,17 @@
 
 <script>
 export default {
-    name : "Child1"
-}
+    name: "Child1"
+};
 </script>
 
-<style>
-.child { background-color: yellow; border:solid 1px black; margin:1.5em; padding: 1.0em;  }
+<!-- <style> -->
+<style scoped>
+/* scoped attribute를 지정하지 않으면 덮어쓰기가 된다 */
+.child {
+    background-color: yellow;
+    border: solid 1px black;
+    margin: 1.5em;
+    padding: 1.0em;
+}
 </style>
