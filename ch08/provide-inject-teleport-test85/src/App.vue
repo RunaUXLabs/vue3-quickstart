@@ -36,7 +36,7 @@ export default {
         return this.songs.filter((s) => s.done === true).length;
       })
 
-      // 반응성 제거시, 콘솔에서 체크여부를 변경해도 doneCount가 변경되지 않는다.
+      // 반응성 제거시, 콘솔에서 체크여부를 변경해도 **doneCount**가 변경되지 않는다.
       // doneCount: this.songs.filter((s) => s.done === true).length
 
       /* 
@@ -46,6 +46,7 @@ export default {
   },
 };
 </script>
+
 <style>
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css");
 </style>

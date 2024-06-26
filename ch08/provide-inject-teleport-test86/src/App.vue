@@ -5,7 +5,7 @@
     <br /><br />
     <button @click="changeModal">Teleport를 이용한 Modal 기능</button>
 
-    <!-- <teleport to="css선택자"> 띄울 컴포넌트 </teleport> -->
+    <!-- <teleport to="css선택자"> 띄울 컴포넌트 </teleport>로 구성한다. index.html에서 구성한 css선택자를 텔레포트 to에 지정해줘야한다. -->
     <teleport to="#modal">
       <Modal v-if="isModal" />
     </teleport>

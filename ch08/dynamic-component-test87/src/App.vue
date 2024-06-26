@@ -17,6 +17,7 @@
     <!-- v-bind:is="currentTab" 탭선택값에 따라(currentTab값에 따라) 컴포넌트 변경 -->
   </div>
 </template>
+
 <script>
 import { defineAsyncComponent } from 'vue'; // 비동기컴포넌트 import
 import pMinDelay from 'p-min-delay';
