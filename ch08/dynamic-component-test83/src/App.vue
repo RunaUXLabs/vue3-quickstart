@@ -14,13 +14,17 @@
     </nav>
   </div>
   <div class="container">
-    <!-- is특성값에 의해 탭컨텐츠 출력되는 부분, 정적콘텐츠라면 <keep-alive include="컴포넌트이름">을 통해
-      매번 실행되지 않게 만들어 메모리를 아낀다.  -->
+    <!-- is특성값에 의해 탭컨텐츠 출력되는 부분.
+      정적콘텐츠(동적인데 최초로딩에서 박제하는 개념도 포함)라면 <keep-alive include="컴포넌트이름">을 통해 매번 실행되지 않게 만들어 메모리를 아낀다. include attribute를 활용해서 캐싱할 수 있는데, 원하는 컴포넌트를 ,로구분해서 넣으면 처음 렌더링 된 정보를 기준으로 정적콘텐츠화 한다. 캐싱되지 않은 컴포넌트는 실시간으로 반영된다.
+      <keep-alive>는 자식을 무조건 하나만 갖는다. 주석도 자식으로 치니 주의!
+       -->
     <keep-alive include="MidwayTab,CoralSeaTab">
       <component :is="currentTab"></component>
     </keep-alive>
+    <!-- :is의 특성 정확하게 이해해두기, 컴포넌트 이름이랑 매칭이 되어야 함! -->
   </div>
 </template>
+
 <script>
 import CoralSeaTab from './components/CoralSeaTab.vue';
 import LeyteGulfTab from './components/LeyteGulfTab.vue';
@@ -31,6 +35,7 @@ export default {
   components: { CoralSeaTab, LeyteGulfTab, MidwayTab },
   data() {
     return {
+      // currentTab: '',
       currentTab: 'CoralSeaTab',
       tabs: [
         { id: "CoralSeaTab", label: "산호해 해전" },
@@ -46,6 +51,7 @@ export default {
   }
 };
 </script>
+
 <style>
 .header {
   padding: 20px 0px 0px 20px;
