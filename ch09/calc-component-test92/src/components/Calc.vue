@@ -3,6 +3,7 @@
         X : <input type="text" v-model.number="x" /><br />
         Y : <input type="text" v-model.number="y" /><br />
     </div>
+    {{ x }}
 </template>
 
 <script>
@@ -19,5 +20,6 @@ export default {
         const y = ref(20);
         return { x, y };
     }
+    // setup()은 두 개의 인자를 가질 수 있는데, 하나는 props, 두번째는 context이다. 개발자도구에서 context를 확인하는 방법은 vue devtool에서 vue아이콘이 있는 라인의 톱니바퀴 > More setting 톱니바퀴 > global 탭 > Debugging info를 Enable로 바꾸면 된다
 };
 </script>
