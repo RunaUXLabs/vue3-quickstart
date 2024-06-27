@@ -16,7 +16,7 @@ export default {
 			console.log(`${old} -> ${current}`);
 			state.result = current * 2;
 		});
-		ref()대신에 reactive()를 사용하면 반응성 대이터 객체 state를
+		ref()대신에 reactive()를 사용하면 반응성 데이터 객체 state를
 		생성하게 된다. state의 내부값이 변경되면 핸들러 함수가 실행된다.
 		x가 변경되면 result도 변경되므로 핸들러가 두번 실행되는 오류가 발생함. */
 
@@ -28,11 +28,12 @@ export default {
 		이마저도 오류가 일어난다. 값이긴 하나 감시대상용으로 사용하는 데이터는
 		반응성을 가진 데이터여야 하기 때문. */
 
-		// 올바른 감시데이터 적는법! 감시대상을 getter함수로 정의 한다.
+		// 올바른 감시데이터 적는법! 감시대상을 () => state.x처럼 함수형식, 즉 getter함수로 정의해야한다.
 		watch(() => state.x, (current, old) => {
 			console.log(`${old} -> ${current}`);
 			state.result = current * 2;
 		});
+
 		return { state };
 	}
 };
