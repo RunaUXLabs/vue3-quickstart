@@ -16,8 +16,9 @@ export default {
 		const x = ref(10);
 		const y = ref(20);
 		const result = ref(30);
-		// 배열을 사용하여 다중값을 지니는 감시자 설정방법
+		// 인자를 배열로하는 다중값 감시자 설정방법, 한방에 퉁치기!
 		watch([x, y], ([currentX, currentY], [oldX, oldY]) => {
+			// 각 감시내용을 if문으로 제어중, 감시내용이 너무 많이생기면 if문도 패턴화 해서 반복구문을 돌리면 된다.
 			if (currentX !== oldX) console.log(`X : ${oldX} ==> ${currentX}`);
 			if (currentY !== oldY) console.log(`Y: ${oldY} ==> ${currentY}`);
 			result.value = currentX + currentY;
