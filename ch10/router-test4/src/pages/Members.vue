@@ -34,8 +34,8 @@ export default {
 </script>
 
 <style scoped>
-.img-thumbnail {
-  width: 90px;
-  height: 110px;
-}
+  .img-thumbnail {
+    width: 90px;
+    height: 110px;
+  }
 </style>
