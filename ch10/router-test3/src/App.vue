@@ -18,8 +18,8 @@ export default {
 </script>
 
 <style>
-.container {
-  text-align: center;
-  margin-top: 10px;
-}
+  .container {
+    text-align: center;
+    margin-top: 10px;
+  }
 </style>
