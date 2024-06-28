@@ -4,8 +4,8 @@
     </div>
 </template>
 
-<script>
+<!-- <script>
 export default {
   name : "Members"
 }
-</script>
+</script> -->
