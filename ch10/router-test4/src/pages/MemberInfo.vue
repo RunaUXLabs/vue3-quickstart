@@ -1,7 +1,6 @@
 <template>
     <div className="mt-5">
-        <!-- setup의 함수가 반환한 member에 점표기법으로 접근하여
-    머스태시로 렌더링하여 화면 구성 -->
+        <!-- setup의 함수가 반환한 member에 점표기법으로 접근하여 머스태시로 렌더링하여 화면 구성 -->
         <img :src="member.photo" class="img" />
         <h4 class="mt-2">{{ member.name }}({{ member.role }})</h4>
         <p>{{ member.desc }} </p>
@@ -16,8 +15,8 @@
         <router-link to="/members">멤버 목록으로</router-link>
     </div>
 </template>
-  
-<script>
+
+<!-- <script>
 import { useRoute } from 'vue-router';
 import members from '@/members.json';
 
@@ -34,5 +33,15 @@ export default {
         // setup의 함수가 member를 뱉어줌
     }
 };
+</script> -->
+
+<script setup>
+import { useRoute } from 'vue-router';
+import members from '@/members.json';
+
+const currentRoute = useRoute();
+// useRoute함수 콜링하여 반환되는 값(프록시 오브젝트)을  currentRoute 할당
+const id = parseInt(currentRoute.params.id, 10);
+// 반환된 프록시 오브젝트에서 .params.id까지 접근하여 추출한 값을 정수화하여 id할당
+const member = members.find((m) => m.id === id);
 </script>
-  
