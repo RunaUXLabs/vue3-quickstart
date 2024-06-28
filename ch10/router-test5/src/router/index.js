@@ -24,8 +24,9 @@ const router = createRouter({
             // path에 상위경로를 설정 해두어야 한다.
             children: [
                 { path: ":id", component: VideoPlayer }
+                // /videos/:id로 도출됨
             ]
-            // 중첩라우트 표현시, children: []을 이용한다.
+            // 중첩라우트 표현시, children: []을 이용한다. 이부분은 routes: []과 구조가 같다.
             // 모달창에 상세정보를 출력시키는 UI를 구성할 수 있다.
         },
     ]
