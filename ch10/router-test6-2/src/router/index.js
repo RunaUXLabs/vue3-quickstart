@@ -17,27 +17,27 @@ import MembersLeft from '@/components/members/MembersLeft.vue';
 import MembersFooter from '@/components/members/MembersFooter.vue';
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes: [
-        {
-            path: '/',
-            // 컴포넌트에 변수만 할당하다가, 객체를 할당하여 그 하위 연동을 1개로 처리할 수 있다.
-            // 루트의 레이아웃 구성
-            components: {
-                default: Home,
-                left: HomeLeft,
-            }
-        },
-        {
-            path: '/members',
-            // 멤버스의 레이아웃 구성
-            components: {
-                default: Members,
-                left: MembersLeft,
-                footer: MembersFooter,
-            }
-        },
-    ]
+  history: createWebHistory(),
+  routes: [
+    {
+      path: '/',
+      // 컴포넌트에 변수만 할당하다가, 객체를 할당하여 그 하위 연동을 1개로 처리할 수 있다.
+      // 루트의 레이아웃 구성
+      components: {
+        default: Home,
+        left: HomeLeft,
+      }
+    },
+    {
+      path: '/members',
+      // 멤버스의 레이아웃 구성
+      components: {
+        default: Members,
+        left: MembersLeft,
+        footer: MembersFooter,
+      }
+    },
+  ]
 });
 
 //  인스턴스 객체로 분리된 router에 .addRoute({패스, 네임, 컴포넌트})구성으로 추가를 한다면 경로정보, 이름, 컴포넌트 경로 만 있으면 동적 라우터 구성 가능함.
