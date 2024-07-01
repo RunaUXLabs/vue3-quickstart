@@ -5,6 +5,8 @@ import { createPinia } from 'pinia';
 
 import App from './App.vue';
 import router from './router';
+// mdi- 아이콘 사용시 추가내용, npm install @mdi/font -D
+import '@mdi/font/css/materialdesignicons.css';
 // 뷰티파이 사용 추가내용
 import 'vuetify/styles';
 import { createVuetify } from 'vuetify';
@@ -14,6 +16,9 @@ import * as directives from 'vuetify/directives';
 const vuetify = createVuetify({
   components,
   directives,
+  icons: {
+    defaultSet: 'mdi', // This is already the default value - only for display purposes
+  },
 });
 
 const app = createApp(App);

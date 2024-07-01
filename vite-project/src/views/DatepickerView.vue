@@ -13,7 +13,19 @@ const formattedDate = computed(() => {
 
 <template>
   <main>
-    <v-date-picker v-model="selectedDate" show-adjacent-months />
+    <RouterLink to="/">
+      <v-btn
+        class="ma-2"
+        color="blue-grey-darken-4">
+        <v-icon
+          icon="mdi-arrow-left"
+          start />
+        HOME
+      </v-btn>
+    </RouterLink>
+    <v-date-picker
+      v-model="selectedDate"
+      show-adjacent-months />
     <v-text-field v-model="formattedDate" label="Selected Date" readonly />
   </main>
 </template>
