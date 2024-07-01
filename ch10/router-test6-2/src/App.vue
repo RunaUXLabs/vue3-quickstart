@@ -13,18 +13,18 @@
         <div class="col-md-3 border">
           <!-- 명명된 뷰 사용, router-view에 name을 붙여
             지정된 컨텐츠가 뜨도록 구성할 수 있다. -->
-          <router-view name="left"></router-view>
+          <router-view name="left" />
         </div>
         <div class="col-md-9 border">
           <!-- 라우터의 default으로 설정된 컴포넌트가 뜬다 -->
-          <router-view></router-view>
+          <router-view />
         </div>
       </div>
       <div class="row">
         <div class="col-md-12 border">
           <!-- 명명된 뷰 사용, router-view에 name을 붙여
             지정된 컨텐츠가 뜨도록 구성할 수 있다.  -->
-          <router-view name="footer"></router-view>
+          <router-view name="footer" />
         </div>
       </div>
     </div>
@@ -32,36 +32,36 @@
 </template>
 
 <script>
-import Header from '@/components/Header.vue';
+  import Header from '@/components/Header.vue';
 
-export default {
-  name: "App",
-  components: { Header }
-};
+  export default {
+    name: "App",
+    components: { Header }
+  };
 </script>
 <style>
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
-.container {
-  text-align: center;
-  margin-top: 10px;
-}
-.fa {
-  padding: 5px;
-  width: 30px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-}
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
-.fa-youtube {
-  background: #bb0000;
-  color: white;
-}
-.fa-instagram {
-  background: #125688;
-  color: white;
-}
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+  .container {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .fa {
+    padding: 5px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  .fa-youtube {
+    background: #bb0000;
+    color: white;
+  }
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
 </style>
