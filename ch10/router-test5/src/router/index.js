@@ -20,6 +20,7 @@ const router = createRouter({
         // /videos는 children: []을 가지고 있는 중첩 라우트
         {
             path: '/videos', component: Videos,
+            // path: '/video', component: Videos,
             // 중첩라우트는 한 화면에 상위, 하위가 다표시되기 때문에
             // path에 상위경로를 설정 해두어야 한다.
             children: [
