@@ -85,7 +85,7 @@ export default {
 
 	let videoInfo = reactive({ video: videos.find((v) => v.id === currentRoute.params.id) });
 	const stopVideo = () => {
-		playerRef.value.player.stopVideo();
+		playerRef.value.player.stopVideo(); // 유투브 명령어도 섞어쓰고 있다.
 		router.push('/videos');
 	};
 	const playNext = () => {
@@ -93,7 +93,8 @@ export default {
 		const nextVideo = videos[index + 1];
 		if (nextVideo) {
 			videoInfo.video = nextVideo;
-			router.push('/videos/' + nextVideo.id);
+			router.push('/videos/' + nextVideo.id); // router는 배열이기 때문에 가고자하는 목적지를 .push()로 조정한다.
+			// router.push('목적지')
 		} else {
 			videoInfo.video = videos[0];
 			router.push('/videos/' + videos[0].id);
