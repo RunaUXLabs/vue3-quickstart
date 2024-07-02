@@ -14,11 +14,13 @@
 </template>
 
 <script>
-export default {
-  name : "App"
-}
+  export default {
+    name: "App"
+  };
 </script>
 
 <style>
-.container { margin:10px; }
+  .container {
+    margin: 10px;
+  }
 </style>
