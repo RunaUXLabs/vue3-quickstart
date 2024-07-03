@@ -12,16 +12,16 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
-// pinia에서 데이터 가져오기
-import { useTodoListStore } from '@/stores/todoList.js';
+  import { useRouter } from 'vue-router';
+  // pinia에서 데이터 가져오기
+  import { useTodoListStore } from '@/stores/todoList.js';
 
-defineProps({
-  todoItem: { Type: Object, required: true }
-});
+  defineProps({
+    todoItem: { Type: Object, required: true }
+  });
 
-const router = useRouter();
-// 데이터 디스턱쳐링하기, 분해할당, 이 컴포넌트에서 쓸 것만 꺼내기
-const todoListStore = useTodoListStore(); // 반환값이 객체임
-const { deleteTodo, toggleDone } = todoListStore;
+  const router = useRouter();
+  // 데이터 디스턱쳐링하기, 분해할당, 이 컴포넌트에서 쓸 것만 꺼내기
+  const todoListStore = useTodoListStore(); // 반환값이 객체임
+  const { deleteTodo, toggleDone } = todoListStore;
 </script>
