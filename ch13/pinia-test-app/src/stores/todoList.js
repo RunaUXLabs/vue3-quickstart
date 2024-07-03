@@ -70,5 +70,6 @@ export const useTodoList2Store = defineStore("todoList2", () => {
 
     const todoList = computed(() => state.todoList);
 
+    // 이 아래 return은  defineStore()함수의 콜백함수가 반환하는 값이다.
     return { todoList, doneCount, addTodo, deleteTodo, toggleDone };
 });
